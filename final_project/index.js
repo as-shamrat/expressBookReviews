@@ -19,7 +19,6 @@ app.use(
 
 app.use("/customer/auth/*", function auth(req, res, next) {
   //Write the authenication mechanism here
-  console.log(req.headers.authorization);
   if (req.session.authorization) {
     const token = req.session.authorization["accessToken"];
     jwt.verify(token, "access", (err, user) => {
